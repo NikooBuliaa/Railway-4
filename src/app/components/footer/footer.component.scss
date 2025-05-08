@@ -1,0 +1,41 @@
+/* Footer Styles */
+.footer {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Same gradient as header */
+  color: white;
+  padding: 20px 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.footer:hover {
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); /* Gradient hover effect */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer p {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.footer:hover p {
+  color: #e74c3c; /* Red color for text on hover */
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 15px 0;
+  }
+
+  .footer p {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,52 @@
+<div class="main-wrapper">
+  <form class="search-form" (submit)="search(); $event.preventDefault()">
+    <select [(ngModel)]="from" name="from">
+      <option value="თბილისი">თბილისი</option>
+      <option value="ბათუმი">ბათუმი</option>
+      <option value="ფოთი">ფოთი</option>
+    </select>
+
+    <select [(ngModel)]="to" name="to">
+      <option value="თბილისი">თბილისი</option>
+      <option value="ბათუმი">ბათუმი</option>
+      <option value="ფოთი">ფოთი</option>
+    </select>
+
+    <input type="date" [(ngModel)]="date" name="date" />
+    <button type="submit">ძიება</button>
+  </form>
+
+  <div class="hero-image">
+    <img src="/Trains.png" alt="Travel Image">
+  </div>
+
+
+  <div class="trains">
+    <div class="train-card" *ngFor="let train of trains">
+      <div class="train-header">
+        🚆 {{ train.name }} - {{ from }} → {{ to }}
+      </div>
+
+      <div class="train-info">
+        <div>
+          <strong>გასვლა:</strong> {{ train.departure }}
+        </div>
+        <div>
+          <strong>ჩასვლა:</strong> {{ train.arrive }}
+        </div>
+        <div>
+          <strong>დრო:</strong> {{ getDuration(train.departure, train.arrive) }}
+        </div>
+        <div>
+          <strong>თარიღი:</strong> {{ train.date }}
+        </div>
+      </div>
+
+  
+
+      <div class="vagons">
+        <button routerLink="/vagons/{{vagon.id}}" *ngFor="let vagon of train.vagons"> {{vagon.name}}</button>
+      </div>
+    </div>
+  </div>
+</div>

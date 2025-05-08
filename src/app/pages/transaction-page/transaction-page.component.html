@@ -1,0 +1,32 @@
+<div class="payment-container">
+  <h2 class="page-title">გადახდის გვერდი</h2>
+
+  <form (ngSubmit)="submitPayment()" #paymentForm="ngForm">
+    <div class="form-group">
+      <label for="cardNumber">ბარათის ნომერი</label>
+      <input id="cardNumber" type="text" name="cardNumber" [(ngModel)]="payment.cardNumber" required />
+    </div>
+
+    <div class="form-group">
+      <label for="expiry">ვადის დასრულება (MM/YY)</label>
+      <input id="expiry" type="text" name="expiry" [(ngModel)]="payment.expiry" required />
+    </div>
+
+    <div class="form-group">
+      <label for="cvc">CVC</label>
+      <input id="cvc" type="text" name="cvc" [(ngModel)]="payment.cvc" required />
+    </div>
+
+    <div class="form-group">
+      <label for="cardHolder">მფლობელის სახელი</label>
+      <input id="cardHolder" type="text" name="cardHolder" [(ngModel)]="payment.cardHolder" required />
+    </div>
+
+    <button type="submit" [disabled]="paymentForm.invalid" class="submit-button">გადახდა</button>
+  </form>
+
+  <p *ngIf="paymentSuccess" class="success">გადახდა წარმატებით შესრულდა ✅</p>
+  <p *ngIf="paymentError" class="error">გადახდა ვერ შესრულდა ❌</p>
+</div>
+
+<app-paid-ticket *ngIf="paid" [paymentDetails]="payment"></app-paid-ticket>

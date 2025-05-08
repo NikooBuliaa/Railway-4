@@ -1,0 +1,164 @@
+.main-wrapper {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 3rem;
+  background-color: #f4f6f9;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ==== SEARCH FORM ==== */
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: #ffffff;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.search-form select,
+.search-form input[type='date'] {
+  flex: 1;
+  min-width: 180px;
+  padding: 1rem 1.2rem;
+  font-size: 1.1rem;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  background-color: #fafafa;
+  transition: 0.3s ease;
+}
+
+.search-form select:focus,
+.search-form input[type='date']:focus {
+  outline: none;
+  border-color: #ef3e36;
+  box-shadow: 0 0 0 3px rgba(239, 62, 54, 0.2);
+}
+
+.search-form button {
+  padding: 1rem 2.5rem;
+  background-color: #ef3e36;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: #d92d2d;
+  transform: translateY(-3px);
+}
+
+/* ==== HERO IMAGE ==== */
+.hero-image {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ==== TRAIN LIST ==== */
+.trains {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.train-card {
+  background-color: #ffffff;
+  border-radius: 25px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-left: 8px solid #ef3e36;
+  transition: transform 0.3s ease;
+}
+
+.train-card:hover {
+  transform: translateY(-7px);
+}
+
+.train-header {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333333;
+}
+
+/* ==== TRAIN INFO ==== */
+.train-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1.5rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.train-info div {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.train-info strong {
+  color: #333;
+}
+
+/* ==== VAGONS ==== */
+.vagons {
+  margin-top: 1.8rem;
+  display: flex;
+  gap: 1.3rem;
+  flex-wrap: wrap;
+}
+
+.vagons button {
+  background-color: #ef3e36;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 10px rgba(239, 62, 54, 0.2);
+}
+
+.vagons button:hover {
+  background-color: #c53030;
+  transform: translateY(-4px);
+}
+
+/* ==== TICKET BUTTON ==== */
+.ticket-btn {
+  padding: 1rem 2rem;
+  background-color: #ef3e36;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 10px rgba(239, 62, 54, 0.2);
+  margin-top: 2rem;
+}
+
+.ticket-btn:hover {
+  background-color: #c53030;
+  transform: translateY(-4px);
+}

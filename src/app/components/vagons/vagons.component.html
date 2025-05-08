@@ -1,0 +1,90 @@
+<div class="vagon-container">
+  <div class="vagon-list">
+    <div class="vagon" *ngFor="let vagon of vagons" [class.selected]="isVagonSelected(vagon)">
+      <h3>{{ vagon.name }}</h3>
+      <p>Train Number: {{ vagon.trainNumber }}</p>
+      <div class="btns">
+        <button class="btnSeat" *ngFor="let seat of vagon.seats" [class.selected]="isSeatSelected(seat.seatId)"
+          [disabled]="seat.isOccupied" (click)="selectSeat(seat, vagon.trainId)">
+          <span class="seat-info">{{ seat.number }} - {{ seat.price }} GEL</span>
+          <span *ngIf="seat.isOccupied" class="occupied">Occupied</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- არჩეული ადგილების სექცია -->
+  <div class="selected-summary" *ngIf="selectedSeats.length > 0">
+    <h3>არჩეული ადგილები:</h3>
+    <ul>
+      <li *ngFor="let seat of selectedSeats">
+        ადგილი № {{ seat.number }} — ფასი: {{ seat.price }}₾
+      </li>
+    </ul>
+    <div class="total">
+      ჯამური ფასი: <strong>{{ getTotalPrice() }} ₾</strong>
+    </div>
+  </div>
+
+  
+  
+
+  <!-- მგზავრის ინფორმაციის ფორმა -->
+  <div class="selected-summary" *ngIf="selectedSeats.length > 0">
+    <h3>არჩეული ადგილები და მგზავრები:</h3>
+    <form (ngSubmit)="submitForm()" #passengerForm="ngForm">
+      <div *ngFor="let seat of selectedSeats; let i = index" class="passenger-form">
+        <h4>ადგილი №{{ seat.number }} — {{ seat.price }} ₾</h4>
+        <label>
+          სახელი:
+          <input type="text" [(ngModel)]="seat.name" name="name{{i}}" required />
+        </label>
+        <label>
+          გვარი:
+          <input type="text" [(ngModel)]="seat.surname" name="surname{{i}}" required />
+        </label>
+        <label>
+          პირადი ნომერი:
+          <input type="text" [(ngModel)]="seat.idNumber" name="idNumber{{i}}" required />
+        </label>
+      </div>
+      <div class="total">
+        ჯამური ფასი: <strong>{{ getTotalPrice() }} ₾</strong>
+      </div>
+      <button type="submit" [disabled]="!passengerForm.form.valid" (click)="onSubmit()">გაგზავნა/გადახდა</button>
+    </form>
+  </div>
+<!-- 
+  {
+    "trainId": 0,
+    "date": "2025-05-08T09:20:23.401Z",
+    "email": "string",
+    "phoneNumber": "string",
+    "people": [
+      {
+        "seatId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "name": "string",
+        "surname": "string",
+        "idNumber": "string",
+        "status": "string",
+        "payoutCompleted": true
+      }
+    ]
+  } -->
+
+  <!-- : 
+isOccupied
+: 
+false
+number
+: 
+"6A"
+price
+: 
+75
+seatId
+: 
+"ef212abe-81b4-4334-bee4-02d636aa4ce5"
+vagonId
+: 
+37 -->

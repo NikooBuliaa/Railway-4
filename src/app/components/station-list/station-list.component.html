@@ -1,0 +1,9 @@
+<div *ngIf="loading">იტვირთება...</div>
+
+<div *ngIf="error">{{ error }}</div>
+
+<ul *ngIf="stations.length">
+  <li *ngFor="let station of stations">
+    {{ station.name }}
+  </li>
+</ul>
